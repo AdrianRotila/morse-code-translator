@@ -1,3 +1,3 @@
-export const translateToMorse = () => {
+export const translateToMorse = (string) => {
     
 }
