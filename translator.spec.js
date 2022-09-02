@@ -1,7 +1,7 @@
 import { translateToMorse } from "./translator";
 
 describe('Testing translateToMorse()', () => {
-    it("Should convert lower case letters", () => {
+    it("Should convert lower case letters to morse", () => {
         // Arrange
         let string;
         // Act
