@@ -1,396 +1,454 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.translateToEnglish = void 0;
+// To Morse translation elements
+var inputEnglish = document.querySelector(".english__input");
+var toMorseButton = document.querySelector(".english__button"); // To English translation elements
 
-// const inputEnglish = document.querySelector(".english__input");
-// const toMorseButton = document.querySelector(".english__button");
-// const translatedBox = document.querySelector(".english__translation");
-// Translate to Morse
-// const translateToMorse = (string) => {
-//     const lastCharacter = string.length - 1;
-//     for (let index = 0; index < string.length; index++) {
-//         if(index !== lastCharacter || index !== 0) {
-//             translatedBox.innerHTML += " ";
-//         } 
-//         switch(string[index].toUpperCase()){
-//             // Letters
-//             case "A":
-//                 translatedBox.innerHTML += ".-";
-//                 break;
-//             case "B":
-//                 translatedBox.innerHTML += "-...";
-//                 break;
-//             case "C":
-//                 translatedBox.innerHTML += "-.-.";
-//                 break;  
-//             case "D":
-//                 translatedBox.innerHTML += "-..";
-//                 break;
-//             case "E":
-//                 translatedBox.innerHTML += ".";
-//                 break;
-//             case "F":
-//                 translatedBox.innerHTML += "..-.";
-//                 break;
-//             case "G":
-//                 translatedBox.innerHTML += "--.";
-//                 break;
-//             case "H":
-//                 translatedBox.innerHTML += "....";
-//                 break;
-//             case "I":
-//                 translatedBox.innerHTML += "..";
-//                 break;
-//             case "J":
-//                 translatedBox.innerHTML += ".---";
-//                 break;
-//             case "K":
-//                 translatedBox.innerHTML += "-.-";
-//                 break;
-//             case "L":
-//                 translatedBox.innerHTML += ".-..";
-//                 break;
-//             case "M":
-//                 translatedBox.innerHTML += "--";
-//                 break;
-//             case "N":
-//                 translatedBox.innerHTML += "-.";
-//                 break;
-//             case "O":
-//                 translatedBox.innerHTML += "---";
-//                 break;
-//             case "P":
-//                 translatedBox.innerHTML += ".--.";
-//                 break;
-//             case "Q":
-//                 translatedBox.innerHTML += "--.-";
-//                 break;
-//             case "R":
-//                 translatedBox.innerHTML += ".-.";
-//                 break;
-//             case "S":
-//                 translatedBox.innerHTML += "...";
-//                 break;
-//             case "T":
-//                 translatedBox.innerHTML += "-";
-//                 break;
-//             case "U":
-//                 translatedBox.innerHTML += "..-";
-//                 break;
-//             case "V":
-//                 translatedBox.innerHTML += "...-";
-//                 break;
-//             case "W":
-//                 translatedBox.innerHTML += ".--";
-//                 break;
-//             case "X":
-//                 translatedBox.innerHTML += "-..-";
-//                 break;
-//             case "Y":
-//                 translatedBox.innerHTML += "-.--";
-//                 break;
-//             case "Z":
-//                 translatedBox.innerHTML += "--..";
-//                 break;
-//             // Numbers
-//             case "0":
-//                 translatedBox.innerHTML += "-----";
-//                 break;
-//             case "1":
-//                 translatedBox.innerHTML += ".----";
-//                 break;
-//             case "2":
-//                 translatedBox.innerHTML += "..---";
-//                 break;
-//             case "3":
-//                 translatedBox.innerHTML += "...--";
-//                 break;
-//             case "4":
-//                 translatedBox.innerHTML += "....-";
-//                 break;
-//             case "5":
-//                 translatedBox.innerHTML += ".....";
-//                 break;
-//             case "6":
-//                 translatedBox.innerHTML += "-....";
-//                 break;
-//             case "7":
-//                 translatedBox.innerHTML += "--...";
-//                 break;
-//             case "8":
-//                 translatedBox.innerHTML += "---..";
-//                 break;
-//             case "9":
-//                 translatedBox.innerHTML += "----.";
-//                 break;
-//             // Punctuation
-//             case ".":
-//                 translatedBox.innerHTML += ".-.-.-";
-//                 break;
-//             case ",":
-//                 translatedBox.innerHTML += "--..--";
-//                 break;
-//             case "?":
-//                 translatedBox.innerHTML += "..--..";
-//                 break;
-//             case "!":
-//                 translatedBox.innerHTML += "-.-.--";
-//                 break;
-//             case "/":
-//                 translatedBox.innerHTML += "-..-.";
-//                 break;
-//             case "(":
-//                 translatedBox.innerHTML += "-.--.";
-//                 break;
-//             case ")":
-//                 translatedBox.innerHTML += "-.--.-";
-//                 break;
-//             case ":":
-//                 translatedBox.innerHTML += "---...";
-//                 break;
-//             case ";":
-//                 translatedBox.innerHTML += "-.-.-.";
-//                 break;
-//             case "=":
-//                 translatedBox.innerHTML += "-...-";
-//                 break;
-//             case "+":
-//                 translatedBox.innerHTML += ".-.-.";
-//                 break;
-//             case "@":
-//                 translatedBox.innerHTML += ".--.-.";
-//                 break;
-//             case " ":
-//                 if(translatedBox.innerHTML.endsWith("/ ")){
-//                    translatedBox.innerHTML = translatedBox.innerHTML.slice(0, -2) + "/";
-//                 } else {
-//                     translatedBox.innerHTML += "/";
-//                 }
-//                 break;
-//             default:
-//                 break;
-//         }
-//     }
-// }
-// toMorseButton.addEventListener("click", () => {
-//     translatedBox.innerHTML = "";
-//     translateToMorse(inputEnglish.value);
-// })
-// Translate to English
-var translateToEnglish = function translateToEnglish(morse) {
-  var morseLetters = morse.split(" ");
-  var result = "";
-  console.log(morseLetters);
+var inputMorse = document.querySelector(".morse__input");
+var toEnglishButton = document.querySelector(".morse__button"); // Translate to Morse
 
-  for (var index = 0; index < morseLetters.length; index++) {
-    switch (morseLetters[index]) {
-      case ".-":
-        result += "A";
+var translateToMorse = function translateToMorse(string) {
+  var lastCharacter = string.length - 1;
+
+  for (var index = 0; index < string.length; index++) {
+    if (index !== lastCharacter || index !== 0) {
+      inputMorse.value += " ";
+    }
+
+    switch (string[index].toUpperCase()) {
+      // Letters
+      case "A":
+        inputMorse.value += ".-";
         break;
 
-      case "-...":
-        result += "B";
+      case "B":
+        inputMorse.value += "-...";
         break;
 
-      case "-.-.":
-        result += "C";
+      case "C":
+        inputMorse.value += "-.-.";
         break;
 
-      case "-..":
-        result += "D";
+      case "D":
+        inputMorse.value += "-..";
         break;
 
-      case ".":
-        result += "E";
+      case "E":
+        inputMorse.value += ".";
         break;
 
-      case "..-.":
-        result += "F";
+      case "F":
+        inputMorse.value += "..-.";
         break;
 
-      case "--.":
-        result += "G";
+      case "G":
+        inputMorse.value += "--.";
         break;
 
-      case "....":
-        result += "H";
+      case "H":
+        inputMorse.value += "....";
         break;
 
-      case "..":
-        result += "I";
+      case "I":
+        inputMorse.value += "..";
         break;
 
-      case ".---":
-        result += "J";
+      case "J":
+        inputMorse.value += ".---";
         break;
 
-      case "-.-":
-        result += "K";
+      case "K":
+        inputMorse.value += "-.-";
         break;
 
-      case ".-..":
-        result += "L";
+      case "L":
+        inputMorse.value += ".-..";
         break;
 
-      case "--":
-        result += "M";
+      case "M":
+        inputMorse.value += "--";
         break;
 
       case "N":
-        result += "-.";
+        inputMorse.value += "-.";
         break;
 
-      case "---":
-        result += "O";
+      case "O":
+        inputMorse.value += "---";
         break;
 
-      case ".--.":
-        result += "P";
+      case "P":
+        inputMorse.value += ".--.";
         break;
 
-      case "--.-":
-        result += "Q";
+      case "Q":
+        inputMorse.value += "--.-";
         break;
 
-      case ".-.":
-        result += "R";
+      case "R":
+        inputMorse.value += ".-.";
         break;
 
-      case "...":
-        result += "S";
+      case "S":
+        inputMorse.value += "...";
         break;
 
-      case "-":
-        result += "T";
+      case "T":
+        inputMorse.value += "-";
         break;
 
-      case "..-":
-        result += "U";
+      case "U":
+        inputMorse.value += "..-";
         break;
 
-      case "...-":
-        result += "V";
+      case "V":
+        inputMorse.value += "...-";
         break;
 
-      case ".--":
-        result += "W";
+      case "W":
+        inputMorse.value += ".--";
         break;
 
-      case "-..-":
-        result += "X";
+      case "X":
+        inputMorse.value += "-..-";
         break;
 
-      case "-.--":
-        result += "Y";
+      case "Y":
+        inputMorse.value += "-.--";
         break;
 
-      case "--..":
-        result += "Z";
+      case "Z":
+        inputMorse.value += "--..";
         break;
       // Numbers
 
-      case "-----":
-        result += "0";
+      case "0":
+        inputMorse.value += "-----";
         break;
 
-      case ".----":
-        result += "1";
+      case "1":
+        inputMorse.value += ".----";
         break;
 
-      case "..---":
-        result += "2";
+      case "2":
+        inputMorse.value += "..---";
         break;
 
-      case "...--":
-        result += "3";
+      case "3":
+        inputMorse.value += "...--";
         break;
 
-      case "....-":
-        result += "4";
+      case "4":
+        inputMorse.value += "....-";
         break;
 
-      case ".....":
-        result += "5";
+      case "5":
+        inputMorse.value += ".....";
         break;
 
-      case "6-....":
-        result += "6";
+      case "6":
+        inputMorse.value += "-....";
         break;
 
-      case "--...":
-        result += "7";
+      case "7":
+        inputMorse.value += "--...";
         break;
 
-      case "---..":
-        result += "8";
+      case "8":
+        inputMorse.value += "---..";
         break;
 
-      case "----.":
-        result += "9";
+      case "9":
+        inputMorse.value += "----.";
         break;
       // Punctuation
 
-      case ".-.-.-":
-        result += ".";
+      case ".":
+        inputMorse.value += ".-.-.-";
         break;
 
-      case "--..--":
-        result += ",";
+      case ",":
+        inputMorse.value += "--..--";
         break;
 
-      case "..--..":
-        result += "?";
+      case "?":
+        inputMorse.value += "..--..";
         break;
 
-      case "-.-.--":
-        result += "!";
-        break;
-
-      case "-..-.":
-        result += "/";
-        break;
-
-      case "-.--.":
-        result += "(";
-        break;
-
-      case "-.--.-":
-        result += ")";
-        break;
-
-      case "---...":
-        result += ":";
-        break;
-
-      case "-.-.-.":
-        result += ";";
-        break;
-
-      case "-...-":
-        result += "=";
-        break;
-
-      case ".-.-.":
-        result += "+";
-        break;
-
-      case ".--.-.":
-        result += "@";
+      case "!":
+        inputMorse.value += "-.-.--";
         break;
 
       case "/":
-        result += " ";
+        inputMorse.value += "-..-.";
+        break;
+
+      case "(":
+        inputMorse.value += "-.--.";
+        break;
+
+      case ")":
+        inputMorse.value += "-.--.-";
+        break;
+
+      case ":":
+        inputMorse.value += "---...";
+        break;
+
+      case ";":
+        inputMorse.value += "-.-.-.";
+        break;
+
+      case "=":
+        inputMorse.value += "-...-";
+        break;
+
+      case "+":
+        inputMorse.value += ".-.-.";
+        break;
+
+      case "-":
+        inputMorse.value += "-....-";
+        break;
+
+      case "@":
+        inputMorse.value += ".--.-.";
+        break;
+
+      case " ":
+        if (inputMorse.value.endsWith("/ ")) {
+          inputMorse.value = inputMorse.value.slice(0, -2) + "/";
+        } else {
+          inputMorse.value += "/";
+        }
+
         break;
 
       default:
         break;
     }
   }
-
-  return result;
 };
 
-exports.translateToEnglish = translateToEnglish;
+toMorseButton.addEventListener("click", function () {
+  inputMorse.value = "";
+  translateToMorse(inputEnglish.value);
+}); // Translate to English
+
+var translateToEnglish = function translateToEnglish(morse) {
+  var morseLetters = morse.split(" ");
+
+  for (var index = 0; index < morseLetters.length; index++) {
+    switch (morseLetters[index]) {
+      case ".-":
+        inputEnglish.value += "A";
+        break;
+
+      case "-...":
+        inputEnglish.value += "B";
+        break;
+
+      case "-.-.":
+        inputEnglish.value += "C";
+        break;
+
+      case "-..":
+        inputEnglish.value += "D";
+        break;
+
+      case ".":
+        inputEnglish.value += "E";
+        break;
+
+      case "..-.":
+        inputEnglish.value += "F";
+        break;
+
+      case "--.":
+        inputEnglish.value += "G";
+        break;
+
+      case "....":
+        inputEnglish.value += "H";
+        break;
+
+      case "..":
+        inputEnglish.value += "I";
+        break;
+
+      case ".---":
+        inputEnglish.value += "J";
+        break;
+
+      case "-.-":
+        inputEnglish.value += "K";
+        break;
+
+      case ".-..":
+        inputEnglish.value += "L";
+        break;
+
+      case "--":
+        inputEnglish.value += "M";
+        break;
+
+      case "N":
+        inputEnglish.value += "-.";
+        break;
+
+      case "---":
+        inputEnglish.value += "O";
+        break;
+
+      case ".--.":
+        inputEnglish.value += "P";
+        break;
+
+      case "--.-":
+        inputEnglish.value += "Q";
+        break;
+
+      case ".-.":
+        inputEnglish.value += "R";
+        break;
+
+      case "...":
+        inputEnglish.value += "S";
+        break;
+
+      case "-":
+        inputEnglish.value += "T";
+        break;
+
+      case "..-":
+        inputEnglish.value += "U";
+        break;
+
+      case "...-":
+        inputEnglish.value += "V";
+        break;
+
+      case ".--":
+        inputEnglish.value += "W";
+        break;
+
+      case "-..-":
+        inputEnglish.value += "X";
+        break;
+
+      case "-.--":
+        inputEnglish.value += "Y";
+        break;
+
+      case "--..":
+        inputEnglish.value += "Z";
+        break;
+      // Numbers
+
+      case "-----":
+        inputEnglish.value += "0";
+        break;
+
+      case ".----":
+        inputEnglish.value += "1";
+        break;
+
+      case "..---":
+        inputEnglish.value += "2";
+        break;
+
+      case "...--":
+        inputEnglish.value += "3";
+        break;
+
+      case "....-":
+        inputEnglish.value += "4";
+        break;
+
+      case ".....":
+        inputEnglish.value += "5";
+        break;
+
+      case "6-....":
+        inputEnglish.value += "6";
+        break;
+
+      case "--...":
+        inputEnglish.value += "7";
+        break;
+
+      case "---..":
+        inputEnglish.value += "8";
+        break;
+
+      case "----.":
+        inputEnglish.value += "9";
+        break;
+      // Punctuation
+
+      case ".-.-.-":
+        inputEnglish.value += ".";
+        break;
+
+      case "--..--":
+        inputEnglish.value += ",";
+        break;
+
+      case "-....-":
+        inputEnglish.value += "-";
+        break;
+
+      case "..--..":
+        inputEnglish.value += "?";
+        break;
+
+      case "-.-.--":
+        inputEnglish.value += "!";
+        break;
+
+      case "-..-.":
+        inputEnglish.value += "/";
+        break;
+
+      case "-.--.":
+        inputEnglish.value += "(";
+        break;
+
+      case "-.--.-":
+        inputEnglish.value += ")";
+        break;
+
+      case "---...":
+        inputEnglish.value += ":";
+        break;
+
+      case "-.-.-.":
+        inputEnglish.value += ";";
+        break;
+
+      case "-...-":
+        inputEnglish.value += "=";
+        break;
+
+      case ".-.-.":
+        inputEnglish.value += "+";
+        break;
+
+      case ".--.-.":
+        inputEnglish.value += "@";
+        break;
+
+      case "/":
+        inputEnglish.value += " ";
+        break;
+
+      default:
+        break;
+    }
+  }
+};
+
+toEnglishButton.addEventListener("click", function () {
+  inputEnglish.value = "";
+  translateToEnglish(inputMorse.value);
+});

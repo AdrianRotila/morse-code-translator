@@ -2,7 +2,7 @@
 
 var _translator = require("./translator");
 
-xdescribe('Testing translateToMorse()', function () {
+describe('Testing translateToMorse()', function () {
   it("Should convert lower case letters to morse", function () {
     // Arrange
     var string; // Act
