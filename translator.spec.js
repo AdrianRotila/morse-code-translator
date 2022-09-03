@@ -1,6 +1,6 @@
-import { translateToMorse } from "./translator";
+import {translateToMorse, translateToEnglish } from "./translator";
 
-describe('Testing translateToMorse()', () => {
+xdescribe('Testing translateToMorse()', () => {
     it("Should convert lower case letters to morse", () => {
         // Arrange
         let string;
@@ -114,3 +114,53 @@ describe('Testing translateToMorse()', () => {
         expect(result).toBe(".... . .-.. .-.. --- --..-- / - .... . .-. . -.-.-- / -- -.-- / -. .- -- . / .. ... .-.-.- .-.-.- .-.-.- / ..--..");
     })
 });
+
+describe('Testing translateToEnglish()', () => {
+    it('Should convert a letter morse code to english', () => {
+        // Arrange
+        let morse;
+        // Act
+        morse = "--.";
+        let result = translateToEnglish(morse);
+        // Assert
+        expect(result).toBe("G");
+    })
+
+    it('Should convert space in morse to in space', () => {
+        // Arrange
+        let morse;
+        // Act
+        morse = "/";
+        let result = translateToEnglish(morse);
+        // Assert
+        expect(result).toBe(" ");
+    })
+    if('Should convert a single morse word in a english word', () => {
+        // Arrange
+        let morse;
+        // Act
+        morse = "-... . .- ..- - .. ..-. ..- .-..";
+        // Assert
+        let result = translateToEnglish(morse);
+        expect(result).toBe("BEAUTIFUL");
+    })
+    if('Should convert morse sentences in english', () => {
+        // Arrange
+        let morse;
+        // Act
+        morse = ".. / .-.. --- ...- . / - --- / .-- .-. .. - . / -.-. --- -.. .";
+        // Assert
+        let result = translateToEnglish(morse);
+        expect(result).toBe("I LOVE TO WRITE CODE");
+    })
+    if('Should convert morse sentences with signs and numbers in english', () => {
+        // Arrange
+        let morse;
+        // Act
+        morse = "---.. / -.-.-- / .... .- ...- . / .---- ----- ..--.. -.-.-.";
+        // Assert
+        let result = translateToEnglish(morse);
+        expect(result).toBe("8 ! have 10?;");
+    })
+});
+
