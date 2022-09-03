@@ -4,22 +4,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./main.js" defer></script>
+    <link rel="stylesheet" href="./styles/style.css">
     <title>English to Morse Code</title>
 </head>
 <body>
-    <h1>Translate your text to Morse</h1>
+    <h1 class="title">English to Morse text Translator</h1>
 
-    <div class="english">
-        <h3 class="english__title">Text</h3>
-        <input class="english__input" type="text" >
-        <button class="english__button">Translate to Morse</button>
-    </div>
+    <main>
+        <div class="english">
+            <h3 class="english__title">Text</h3>
+            <textarea class="english__input" type="text" spellcheck="false"></textarea>
+            <button class="english__button">Translate to Morse</button>
+        </div>
 
-    <div class="morse">
-        <h3 class="morse__title">Morse Code</h3>
-        <input class="morse__input" type="text" >
-        <button class="morse__button">Translate to English</button>
-    </div>
-    
+        <div class="morse">
+            <h3 class="morse__title">Morse Code</h3>
+            <textarea class="morse__input" type="text" spellcheck="false"></textarea>
+            <button class="morse__button">Translate to English</button>
+        </div>
+    </main>
 </body>
 </html>

@@ -219,8 +219,8 @@ export const translateToEnglish = (morse) => {
             case "--":
                 result += "M";
                 break;
-            case "N":
-                result += "-.";
+            case "-.":
+                result += "N";
                 break;
             case "---":
                 result += "O";

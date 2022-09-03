@@ -293,8 +293,8 @@ var translateToEnglish = function translateToEnglish(morse) {
         result += "M";
         break;
 
-      case "N":
-        result += "-.";
+      case "-.":
+        result += "N";
         break;
 
       case "---":
