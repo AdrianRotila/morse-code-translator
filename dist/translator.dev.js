@@ -1,12 +1,16 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.translateToEnglish = void 0;
+
 // const inputEnglish = document.querySelector(".english__input");
 // const toMorseButton = document.querySelector(".english__button");
 // const translatedBox = document.querySelector(".english__translation");
-
-
 // Translate to Morse
 // const translateToMorse = (string) => {
 //     const lastCharacter = string.length - 1;
-
 //     for (let index = 0; index < string.length; index++) {
 //         if(index !== lastCharacter || index !== 0) {
 //             translatedBox.innerHTML += " ";
@@ -91,7 +95,6 @@
 //             case "Z":
 //                 translatedBox.innerHTML += "--..";
 //                 break;
-    
 //             // Numbers
 //             case "0":
 //                 translatedBox.innerHTML += "-----";
@@ -123,7 +126,6 @@
 //             case "9":
 //                 translatedBox.innerHTML += "----.";
 //                 break;
-    
 //             // Punctuation
 //             case ".":
 //                 translatedBox.innerHTML += ".-.-.-";
@@ -173,174 +175,222 @@
 //         }
 //     }
 // }
-
 // toMorseButton.addEventListener("click", () => {
 //     translatedBox.innerHTML = "";
 //     translateToMorse(inputEnglish.value);
 // })
-
 // Translate to English
+var translateToEnglish = function translateToEnglish(morse) {
+  var morseLetters = morse.split(" ");
+  var result = "";
+  console.log(morseLetters);
 
- export const translateToEnglish = (morse) => {
-    const morseLetters = morse.split(" ");
-    let result = "";
-    console.log(morseLetters);
-    for(let index = 0; index < morseLetters.length; index ++) {
-        switch(morseLetters[index]) {
-            case ".-":
-                result += "A";
-                break;
-            case "-...":
-                result += "B";
-                break;
-            case "-.-.":
-                result += "C";
-                break;  
-            case "-..":
-                result += "D";
-                break;
-            case ".":
-                result += "E";
-                break;
-            case "..-.":
-                result += "F";
-                break;
-            case "--.":
-                result += "G";
-                break;
-            case "....":
-                result += "H";
-                break;
-            case "..":
-                result += "I";
-                break;
-            case ".---":
-                result += "J";
-                break;
-            case "-.-":
-                result += "K";
-                break;
-            case ".-..":
-                result += "L";
-                break;
-            case "--":
-                result += "M";
-                break;
-            case "N":
-                result += "-.";
-                break;
-            case "---":
-                result += "O";
-                break;
-            case ".--.":
-                result += "P";
-                break;
-            case "--.-":
-                result += "Q";
-                break;
-            case ".-.":
-                result += "R";
-                break;
-            case "...":
-                result += "S";
-                break;
-            case "-":
-                result += "T";
-                break;
-            case "..-":
-                result += "U";
-                break;
-            case "...-":
-                result += "V";
-                break;
-            case ".--":
-                result += "W";
-                break;
-            case "-..-":
-                result += "X";
-                break;
-            case "-.--":
-                result += "Y";
-                break;
-            case "--..":
-                result += "Z";
-                break;
-    
-            // Numbers
-            case "-----":
-                result += "0";
-                break;
-            case ".----":
-                result += "1";
-                break;
-            case "..---":
-                result += "2";
-                break;
-            case "...--":
-                result += "3";
-                break;
-            case "....-":
-                result += "4";
-                break;
-            case ".....":
-                result += "5";
-                break;
-            case "6-....":
-                result += "6";
-                break;
-            case "--...":
-                result += "7";
-                break;
-            case "---..":
-                result += "8";
-                break;
-            case "----.":
-                result += "9";
-                break;
-    
-            // Punctuation
-            case ".-.-.-":
-                result += ".";
-                break;
-            case "--..--":
-                result += ",";
-                break;
-            case "..--..":
-                result += "?";
-                break;
-            case "-.-.--":
-                result += "!";
-                break;
-            case "-..-.":
-                result += "/";
-                break;
-            case "-.--.":
-                result += "(";
-                break;
-            case "-.--.-":
-                result += ")";
-                break;
-            case "---...":
-                result += ":";
-                break;
-            case "-.-.-.":
-                result += ";";
-                break;
-            case "-...-":
-                result += "=";
-                break;
-            case ".-.-.":
-                result += "+";
-                break;
-            case ".--.-.":
-                result += "@";
-                break;
-            case "/":
-                result += " ";
-                break;
-            default:
-                break;
-        }
+  for (var index = 0; index < morseLetters.length; index++) {
+    switch (morseLetters[index]) {
+      case ".-":
+        result += "A";
+        break;
+
+      case "-...":
+        result += "B";
+        break;
+
+      case "-.-.":
+        result += "C";
+        break;
+
+      case "-..":
+        result += "D";
+        break;
+
+      case ".":
+        result += "E";
+        break;
+
+      case "..-.":
+        result += "F";
+        break;
+
+      case "--.":
+        result += "G";
+        break;
+
+      case "....":
+        result += "H";
+        break;
+
+      case "..":
+        result += "I";
+        break;
+
+      case ".---":
+        result += "J";
+        break;
+
+      case "-.-":
+        result += "K";
+        break;
+
+      case ".-..":
+        result += "L";
+        break;
+
+      case "--":
+        result += "M";
+        break;
+
+      case "N":
+        result += "-.";
+        break;
+
+      case "---":
+        result += "O";
+        break;
+
+      case ".--.":
+        result += "P";
+        break;
+
+      case "--.-":
+        result += "Q";
+        break;
+
+      case ".-.":
+        result += "R";
+        break;
+
+      case "...":
+        result += "S";
+        break;
+
+      case "-":
+        result += "T";
+        break;
+
+      case "..-":
+        result += "U";
+        break;
+
+      case "...-":
+        result += "V";
+        break;
+
+      case ".--":
+        result += "W";
+        break;
+
+      case "-..-":
+        result += "X";
+        break;
+
+      case "-.--":
+        result += "Y";
+        break;
+
+      case "--..":
+        result += "Z";
+        break;
+      // Numbers
+
+      case "-----":
+        result += "0";
+        break;
+
+      case ".----":
+        result += "1";
+        break;
+
+      case "..---":
+        result += "2";
+        break;
+
+      case "...--":
+        result += "3";
+        break;
+
+      case "....-":
+        result += "4";
+        break;
+
+      case ".....":
+        result += "5";
+        break;
+
+      case "6-....":
+        result += "6";
+        break;
+
+      case "--...":
+        result += "7";
+        break;
+
+      case "---..":
+        result += "8";
+        break;
+
+      case "----.":
+        result += "9";
+        break;
+      // Punctuation
+
+      case ".-.-.-":
+        result += ".";
+        break;
+
+      case "--..--":
+        result += ",";
+        break;
+
+      case "..--..":
+        result += "?";
+        break;
+
+      case "-.-.--":
+        result += "!";
+        break;
+
+      case "-..-.":
+        result += "/";
+        break;
+
+      case "-.--.":
+        result += "(";
+        break;
+
+      case "-.--.-":
+        result += ")";
+        break;
+
+      case "---...":
+        result += ":";
+        break;
+
+      case "-.-.-.":
+        result += ";";
+        break;
+
+      case "-...-":
+        result += "=";
+        break;
+
+      case ".-.-.":
+        result += "+";
+        break;
+
+      case ".--.-.":
+        result += "@";
+        break;
+
+      case "/":
+        result += " ";
+        break;
+
+      default:
+        break;
     }
-    return result;
-}
+  }
+
+  return result;
+};
+
+exports.translateToEnglish = translateToEnglish;

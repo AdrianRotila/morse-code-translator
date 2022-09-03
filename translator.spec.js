@@ -31,7 +31,7 @@ xdescribe('Testing translateToMorse()', () => {
 
         // Assert
         expect(result).toBe("..-. --- --- -..");
-    })
+    });
 
     it("Should convert upper case single words to morse", () => {
         // Arrange
@@ -41,7 +41,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("--. .- -- .");
-    })
+    });
 
     it("Should convert mixed case single words to morse", () => {
         // Arrange
@@ -51,7 +51,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe(".- -.. .-. .. .- -.");
-    })
+    });
 
     it("Should convert words with space a space between to morse", () => {
         // Arrange
@@ -61,7 +61,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("--. .- -- . / --- ...- . .-.");
-    })
+    });
 
     it("Should convert words with multiple spaces between to morse", () => {
         // Arrange
@@ -71,7 +71,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("--. .- -- . / --- ...- . .-. / ... --- -.");
-    })
+    });
 
     it("Should convert numbers to morse", () => {
         // Arrange
@@ -81,7 +81,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("----- .---- ..--- ...-- ....- .....");
-    })
+    });
 
     it("Should convert numbers with spaces to morse", () => {
         // Arrange
@@ -91,7 +91,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("----- .---- ..--- ...-- ....- ..... / ..--- ...--");
-    })
+    });
 
     
     it("Should convert signs to morse", () => {
@@ -102,7 +102,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe("..--.. -.-.-- .-.-.-");
-    })
+    });
 
     it("Should convert full sentences to morse", () => {
         // Arrange
@@ -112,7 +112,7 @@ xdescribe('Testing translateToMorse()', () => {
         let result = translateToMorse(string);
         // Assert
         expect(result).toBe(".... . .-.. .-.. --- --..-- / - .... . .-. . -.-.-- / -- -.-- / -. .- -- . / .. ... .-.-.- .-.-.- .-.-.- / ..--..");
-    })
+    });
 });
 
 describe('Testing translateToEnglish()', () => {
@@ -124,7 +124,7 @@ describe('Testing translateToEnglish()', () => {
         let result = translateToEnglish(morse);
         // Assert
         expect(result).toBe("G");
-    })
+    });
 
     it('Should convert space in morse to in space', () => {
         // Arrange
@@ -134,8 +134,8 @@ describe('Testing translateToEnglish()', () => {
         let result = translateToEnglish(morse);
         // Assert
         expect(result).toBe(" ");
-    })
-    if('Should convert a single morse word in a english word', () => {
+    });
+    it('Should convert a single morse word in a english word', () => {
         // Arrange
         let morse;
         // Act
@@ -143,8 +143,8 @@ describe('Testing translateToEnglish()', () => {
         // Assert
         let result = translateToEnglish(morse);
         expect(result).toBe("BEAUTIFUL");
-    })
-    if('Should convert morse sentences in english', () => {
+    });
+    it('Should convert morse sentences in english', () => {
         // Arrange
         let morse;
         // Act
@@ -152,15 +152,15 @@ describe('Testing translateToEnglish()', () => {
         // Assert
         let result = translateToEnglish(morse);
         expect(result).toBe("I LOVE TO WRITE CODE");
-    })
-    if('Should convert morse sentences with signs and numbers in english', () => {
+    });
+    it('Should convert morse sentences with signs and numbers in english', () => {
         // Arrange
         let morse;
         // Act
         morse = "---.. / -.-.-- / .... .- ...- . / .---- ----- ..--.. -.-.-.";
         // Assert
         let result = translateToEnglish(morse);
-        expect(result).toBe("8 ! have 10?;");
-    })
+        expect(result).toBe("8 ! HAVE 10?;");
+    });
 });
 
