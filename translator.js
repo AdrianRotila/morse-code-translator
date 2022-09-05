@@ -176,8 +176,12 @@ export const translateToMorse = (string) => {
 
 // Translate to English
 export const translateToEnglish = (morse) => {
+    if(morse.includes("_")) {
+        morse = morse.replaceAll("_", "-");
+    }
     const morseLetters = morse.split(" ");
     let result = ""
+
     for(let index = 0; index < morseLetters.length; index ++) {
         switch(morseLetters[index]) {
             case ".-":
@@ -340,4 +344,6 @@ export const translateToEnglish = (morse) => {
     }
     return result;
 }
+
+
 

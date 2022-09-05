@@ -236,6 +236,10 @@ var translateToMorse = function translateToMorse(string) {
 exports.translateToMorse = translateToMorse;
 
 var translateToEnglish = function translateToEnglish(morse) {
+  if (morse.includes("_")) {
+    morse = morse.replaceAll("_", "-");
+  }
+
   var morseLetters = morse.split(" ");
   var result = "";
 
